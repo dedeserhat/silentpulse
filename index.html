@@ -1866,14 +1866,14 @@
     setTheme(getInitialTheme());
     setLang(getInitialLang());
   </script>
-/* FIX: language dropdown behind hero (z-index + stacking) */
+
 .lang { position: relative; z-index: 9999; }
 .langMenu { z-index: 10000; }
 
-/* Some containers create stacking contexts — force topbar above everything */
+
 .topbar { z-index: 9998; }
 
-/* If any parent clips the dropdown, ensure it doesn't */
+
 .topbar, .nav, .right { overflow: visible !important; }
 
 </body>
