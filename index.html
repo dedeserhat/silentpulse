@@ -1,0 +1,1537 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Silent Pulse — Luxury Feedback, Instant Recovery</title>
+  <meta name="description" content="Silent Pulse: NFC/QR luxury feedback. Guests report issues discreetly. Your team resolves in real time—before it becomes a review." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Silent Pulse — Luxury Feedback, Instant Recovery" />
+  <meta property="og:description" content="NFC or QR access. Guests report issues discreetly. Resolve in real-time." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg0:#07070a;
+      --bg1:#0b0c10;
+      --card:#0f1118;
+      --card2:#0c0e14;
+      --line:rgba(255,255,255,.08);
+      --line2:rgba(255,255,255,.12);
+      --text:#e9e6df;
+      --muted:rgba(233,230,223,.72);
+      --muted2:rgba(233,230,223,.55);
+      --gold:#d9c28a;
+      --gold2:#bda56a;
+      --shadow: 0 10px 40px rgba(0,0,0,.55);
+      --shadow2: 0 14px 70px rgba(0,0,0,.62);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(1200px 800px at 70% 0%, rgba(217,194,138,.10), transparent 60%),
+        radial-gradient(900px 700px at 15% 20%, rgba(217,194,138,.07), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      color: var(--text);
+      letter-spacing: .2px;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 0 20px;}
+    .topbar{
+      position: sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,7,10,.85), rgba(7,7,10,.55));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height:74px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 210px;
+    }
+    .mark{
+      width:34px;height:34px;border-radius:12px;
+      background: radial-gradient(12px 12px at 30% 35%, rgba(217,194,138,.95), rgba(217,194,138,.22)),
+                  linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+      border: 1px solid rgba(217,194,138,.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
+    .brand .name{
+      font-family: var(--serif);
+      letter-spacing:.6px;
+      font-size: 18px;
+    }
+    .brand .tag{
+      font-size: 11px;
+      color: var(--muted2);
+      margin-top: 2px;
+      letter-spacing:.28em;
+      text-transform: uppercase;
+    }
+    .navlinks{
+      display:flex; gap:18px; align-items:center;
+    }
+    .navlinks a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: 160ms ease;
+    }
+    .navlinks a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+    }
+    .right{
+      display:flex; align-items:center; gap:12px;
+      min-width: 210px; justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size: 13px;
+      transition: 160ms ease;
+      cursor:pointer;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.05); border-color: rgba(217,194,138,.25); }
+    .btn:active{ transform: translateY(0px); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(217,194,138,.22), rgba(217,194,138,.06));
+      border-color: rgba(217,194,138,.35);
+      box-shadow: 0 16px 45px rgba(0,0,0,.55);
+    }
+    .btn.primary:hover{
+      border-color: rgba(217,194,138,.55);
+      background: linear-gradient(135deg, rgba(217,194,138,.30), rgba(217,194,138,.08));
+    }
+
+    /* Language */
+    .lang{
+      position: relative;
+    }
+    .langBtn{
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line2);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      display:flex; align-items:center; gap:10px;
+      cursor:pointer;
+      transition: 160ms ease;
+    }
+    .langBtn:hover{ color: var(--text); border-color: rgba(217,194,138,.25); background: rgba(255,255,255,.05); }
+    .globe{
+      width:14px;height:14px; display:inline-block;
+      border-radius: 999px;
+      border: 1px solid rgba(217,194,138,.45);
+      position: relative;
+      opacity: .9;
+    }
+    .globe:before, .globe:after{
+      content:"";
+      position:absolute; inset:2px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .globe:after{
+      inset:6px 2px;
+      border-left:0;border-right:0;
+      border-radius:0;
+    }
+    .langMenu{
+      position:absolute; right:0; top: 44px;
+      width: 160px;
+      background: rgba(15,17,24,.92);
+      border: 1px solid rgba(217,194,138,.18);
+      border-radius: 16px;
+      box-shadow: var(--shadow2);
+      padding: 8px;
+      display:none;
+      overflow:hidden;
+    }
+    .langMenu.open{ display:block; }
+    .langItem{
+      width:100%;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      cursor:pointer;
+      transition: 140ms ease;
+      font-size: 13px;
+    }
+    .langItem:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+    }
+    .chip{
+      font-size: 11px;
+      color: rgba(217,194,138,.9);
+      border: 1px solid rgba(217,194,138,.25);
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(217,194,138,.08);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 64px 0 22px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items:stretch;
+    }
+    .heroCard{
+      border: 1px solid rgba(217,194,138,.18);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      box-shadow: var(--shadow);
+      padding: 34px 30px;
+      position: relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute;
+      inset:-120px -220px auto auto;
+      width: 460px; height: 460px;
+      background: radial-gradient(circle at 30% 30%, rgba(217,194,138,.26), transparent 62%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 14px;
+    }
+    .dot{
+      width:7px;height:7px;border-radius:999px;
+      background: rgba(217,194,138,.9);
+      box-shadow: 0 0 0 4px rgba(217,194,138,.12);
+    }
+    h1{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing: .2px;
+      line-height: 1.05;
+      font-size: clamp(38px, 4.2vw, 58px);
+    }
+    .subtitle{
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 52ch;
+    }
+    .ctaRow{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 22px;
+    }
+    .micro{
+      margin-top: 18px;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+    .micro strong{ color: rgba(217,194,138,.95); font-weight: 600; }
+
+    .sideCard{
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 18px;
+    }
+    .sideTitle{
+      font-family: var(--serif);
+      font-size: 18px;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .steps{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .step{
+      display:flex; gap:12px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
+    }
+    .stepNum{
+      width:28px;height:28px;border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      border: 1px solid rgba(217,194,138,.25);
+      background: rgba(217,194,138,.08);
+      color: rgba(217,194,138,.95);
+      font-size: 12px;
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .stepTxt b{ display:block; font-size: 13px; font-weight: 600; color: var(--text); }
+    .stepTxt span{ display:block; font-size: 12px; color: var(--muted2); margin-top: 2px; line-height: 1.45; }
+
+    /* Sections */
+    section{ padding: 56px 0; }
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; margin-bottom: 18px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing: .2px;
+      font-size: 28px;
+      line-height:1.1;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted2);
+      font-size: 13px;
+      max-width: 60ch;
+      line-height:1.55;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      padding: 18px 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 14px;
+      letter-spacing:.3px;
+      color: var(--text);
+    }
+    .card p{
+      margin:0;
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.55;
+    }
+    .bullets{
+      margin: 12px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid; gap:8px;
+    }
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .tick{
+      width:18px;height:18px;border-radius: 7px;
+      border: 1px solid rgba(217,194,138,.25);
+      background: rgba(217,194,138,.08);
+      flex:0 0 auto;
+      margin-top: 1px;
+      position:relative;
+    }
+    .tick:after{
+      content:"";
+      position:absolute;
+      width:8px; height:4px;
+      border-left: 2px solid rgba(217,194,138,.9);
+      border-bottom: 2px solid rgba(217,194,138,.9);
+      transform: rotate(-45deg);
+      left:5px; top:6px;
+      opacity:.9;
+    }
+
+    /* Split */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .panel{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(217,194,138,.14);
+      background: linear-gradient(180deg, rgba(217,194,138,.06), rgba(255,255,255,.01));
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+    }
+    .panel h3{
+      margin:0 0 10px;
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:.2px;
+    }
+    .panel p{ margin:0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    /* Case study */
+    .case{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+    }
+    .caseTop{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:14px; flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(217,194,138,.25);
+      background: rgba(217,194,138,.08);
+      color: rgba(217,194,138,.95);
+      font-size: 12px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+    }
+    .case h3{
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing:.2px;
+    }
+    .caseGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .caseBlock{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
+      padding: 14px 14px;
+    }
+    .caseBlock b{
+      display:block;
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(217,194,138,.85);
+      margin-bottom: 8px;
+    }
+    .caseBlock p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.6; }
+
+    /* Contact */
+    form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .field{ display:flex; flex-direction:column; gap:8px; }
+    .field.full{ grid-column: 1 / -1; }
+    label{ font-size: 12px; color: var(--muted2); letter-spacing:.04em; }
+    input, textarea, select{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      padding: 12px 12px;
+      font-size: 13px;
+      outline:none;
+      transition: 160ms ease;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(217,194,138,.35);
+      box-shadow: 0 0 0 3px rgba(217,194,138,.10);
+      background: rgba(0,0,0,.18);
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    .formActions{
+      grid-column: 1 / -1;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px; flex-wrap:wrap;
+      margin-top: 4px;
+    }
+    .note{
+      color: var(--muted2);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .note a{ color: rgba(217,194,138,.92); }
+    .successMsg, .errorMsg{
+      grid-column: 1 / -1;
+      border-radius: 16px;
+      padding: 12px 12px;
+      font-size: 13px;
+      display:none;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .successMsg{ border-color: rgba(217,194,138,.25); }
+    .errorMsg{ border-color: rgba(255,255,255,.12); }
+
+    /* Footer */
+    footer{
+      padding: 36px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 22px;
+    }
+    .foot{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap: 18px;
+      flex-wrap:wrap;
+    }
+    .foot small{ color: var(--muted2); }
+    .footLinks{
+      display:flex; gap:14px; flex-wrap:wrap;
+    }
+    .footLinks a{
+      color: var(--muted2);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
+    }
+    .footLinks a:hover{
+      border-color: rgba(217,194,138,.18);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Modal (Guest Form preview) */
+    .modalOverlay{
+      position: fixed; inset:0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(10px);
+      display:none;
+      z-index: 50;
+      padding: 18px;
+    }
+    .modalOverlay.open{ display:flex; align-items:center; justify-content:center; }
+    .modal{
+      width: min(560px, 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(217,194,138,.20);
+      background: linear-gradient(180deg, rgba(15,17,24,.95), rgba(10,11,16,.92));
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .modalHead{
+      padding: 16px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+    }
+    .modalHead b{
+      font-family: var(--serif);
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .x{
+      width:38px;height:38px;border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition: 160ms ease;
+    }
+    .x:hover{ background: rgba(255,255,255,.05); border-color: rgba(217,194,138,.22); }
+    .modalBody{ padding: 16px 16px 18px; }
+    .catRow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin: 10px 0 12px;
+    }
+    .pill{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      font-size: 12px;
+      color: var(--muted);
+      cursor:pointer;
+      transition: 140ms ease;
+      user-select:none;
+    }
+    .pill.active{
+      color: var(--text);
+      border-color: rgba(217,194,138,.30);
+      background: rgba(217,194,138,.10);
+    }
+    .modalBody .field{ margin-top: 10px; }
+    .modalActions{
+      display:flex; gap:12px; justify-content:flex-end; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .tiny{
+      font-size: 11px;
+      color: var(--muted2);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .divider{
+      height:1px; background: var(--line);
+      margin: 10px 0 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .right{ min-width: auto; }
+      .brand{ min-width: auto; }
+      .navlinks{ display:none; }
+      form{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+      .caseGrid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#home" aria-label="Silent Pulse Home">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <div class="name">Silent Pulse</div>
+            <div class="tag" data-i18n="brand.tag">Luxury Feedback</div>
+          </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#home" data-i18n="nav.home">Home</a>
+          <a href="#restaurants" data-i18n="nav.restaurants">For Restaurants</a>
+          <a href="#how" data-i18n="nav.how">How It Works</a>
+          <a href="#case" data-i18n="nav.case">Case Studies</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="right">
+          <button class="btn" type="button" id="openGuestBtn" data-i18n="nav.guestForm">Guest Form</button>
+
+          <div class="lang" id="langWrap">
+            <button class="langBtn" type="button" id="langBtn" aria-haspopup="true" aria-expanded="false">
+              <span class="globe" aria-hidden="true"></span>
+              <span id="langLabel">EN</span>
+              <span style="opacity:.7">▾</span>
+            </button>
+            <div class="langMenu" id="langMenu" role="menu" aria-label="Language">
+              <div class="langItem" role="menuitem" data-lang="en">
+                <span>English</span><span class="chip">EN</span>
+              </div>
+              <div class="langItem" role="menuitem" data-lang="pt-BR">
+                <span>Português (BR)</span><span class="chip">PT</span>
+              </div>
+              <div class="langItem" role="menuitem" data-lang="tr">
+                <span>Türkçe</span><span class="chip">TR</span>
+              </div>
+            </div>
+          </div>
+
+          <a class="btn primary" href="#contact" data-i18n="nav.demo">Request a Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="heroCard">
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="hero.kicker">Designed for premium hospitality</span>
+          </div>
+          <h1 data-i18n="hero.h1">Silent Pulse</h1>
+          <p class="subtitle" data-i18n="hero.sub">
+            Luxury feedback. Instant recovery.
+          </p>
+          <p class="subtitle" style="max-width:60ch" data-i18n="hero.desc">
+            NFC or QR access. Guests report issues discreetly. Your team fixes them in real-time — before they become reviews.
+          </p>
+          <div class="ctaRow">
+            <a class="btn primary" href="#contact" data-i18n="hero.cta1">Request a Demo</a>
+            <a class="btn" href="#how" data-i18n="hero.cta2">See How It Works</a>
+          </div>
+          <div class="micro" data-i18n="hero.micro">
+            Built to protect the guest experience — <strong>quietly</strong>.
+          </div>
+        </div>
+
+        <aside class="sideCard">
+          <div>
+            <p class="sideTitle" data-i18n="side.title">In 3 steps</p>
+            <div class="steps">
+              <div class="step">
+                <div class="stepNum">1</div>
+                <div class="stepTxt">
+                  <b data-i18n="side.s1t">Tap or Scan</b>
+                  <span data-i18n="side.s1d">NFC or QR opens a private form.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="stepNum">2</div>
+                <div class="stepTxt">
+                  <b data-i18n="side.s2t">Describe the Issue</b>
+                  <span data-i18n="side.s2d">Guests write freely, without pressure.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="stepNum">3</div>
+                <div class="stepTxt">
+                  <b data-i18n="side.s3t">Resolve in Real Time</b>
+                  <span data-i18n="side.s3d">Your team is informed instantly.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" style="padding:16px 16px;">
+            <h3 style="margin:0 0 8px; font-size:14px;" data-i18n="side.clientTitle">Trusted by</h3>
+            <p style="margin:0; color:var(--text); font-weight:600; letter-spacing:.2px;">
+              PERA MEDITERRANEAN BBQ
+            </p>
+            <p style="margin:6px 0 0; color:var(--muted2); font-size:12px;" data-i18n="side.clientSub">
+              Live deployment
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="problem.h2">Small issues become public damage.</h2>
+          <p data-i18n="problem.p">Guests don’t want to complain out loud. They either stay silent — or go online.</p>
+        </div>
+        <div class="badge" aria-label="Luxury standard" data-i18n="problem.badge">Luxury standard</div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3 data-i18n="problem.c1t">Service</h3>
+          <p data-i18n="problem.c1p">Delayed attention, missed requests, slow follow-through.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="problem.c2t">Food</h3>
+          <p data-i18n="problem.c2p">Wrong order, temperature, timing, presentation concerns.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="problem.c3t">Comfort</h3>
+          <p data-i18n="problem.c3p">Noise, seating, temperature, lighting — friction in the atmosphere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTS -->
+  <section id="restaurants">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="rest.h2">Built for premium venues.</h2>
+          <p data-i18n="rest.p">Fine dining has no margin for friction. Silent Pulse adds a discreet layer of protection.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <h3 data-i18n="rest.p1t">Guest discretion</h3>
+          <p data-i18n="rest.p1d">No awkward conversations. Guests share the issue privately, in seconds.</p>
+          <ul class="bullets">
+            <li><span class="tick"></span><span data-i18n="rest.b1">Reduces tension at the table</span></li>
+            <li><span class="tick"></span><span data-i18n="rest.b2">Encourages honest feedback</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 data-i18n="rest.p2t">Operational clarity</h3>
+          <p data-i18n="rest.p2d">Know what’s wrong, exactly where and when — so the right person responds.</p>
+          <ul class="bullets">
+            <li><span class="tick"></span><span data-i18n="rest.b3">Faster issue detection</span></li>
+            <li><span class="tick"></span><span data-i18n="rest.b4">Stronger service recovery</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="card">
+        <h3 data-i18n="rest.useTitle">Use cases</h3>
+        <p data-i18n="rest.useDesc">Designed for high-touch hospitality environments.</p>
+        <ul class="bullets" style="grid-template-columns: repeat(2, minmax(0,1fr));">
+          <li><span class="tick"></span><span data-i18n="rest.u1">Fine dining</span></li>
+          <li><span class="tick"></span><span data-i18n="rest.u2">Rooftop venues</span></li>
+          <li><span class="tick"></span><span data-i18n="rest.u3">Hotel restaurants</span></li>
+          <li><span class="tick"></span><span data-i18n="rest.u4">VIP lounges</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="how.h2">How it works</h2>
+          <p data-i18n="how.p">NFC/QR access to a discreet form. Clear signal, fast action. No friction.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3 data-i18n="how.s1t">1 — Place</h3>
+          <p data-i18n="how.s1d">NFC tag or QR on menus, table stands, or receipt presenters.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="how.s2t">2 — Guest form</h3>
+          <p data-i18n="how.s2d">Guests choose a category and write the issue in their own words.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="how.s3t">3 — Resolve</h3>
+          <p data-i18n="how.s3d">Your team is informed instantly to recover the experience in real time.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div style="margin-top:14px" class="card">
+        <h3 data-i18n="how.noteT">Premium by design</h3>
+        <p data-i18n="how.noteD">
+          Silent Pulse is intentionally minimal — fast for guests, clear for teams, aligned with luxury service standards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section id="case">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="case.h2">Case study</h2>
+          <p data-i18n="case.p">A live deployment in a premium dining environment.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="caseTop">
+          <div>
+            <div class="badge" data-i18n="case.badge">Live deployment</div>
+            <h3>PERA MEDITERRANEAN BBQ</h3>
+          </div>
+          <a class="btn" href="#contact" data-i18n="case.cta">Request details</a>
+        </div>
+
+        <div class="caseGrid">
+          <div class="caseBlock">
+            <b data-i18n="case.c1t">The challenge</b>
+            <p data-i18n="case.c1d">
+              In a high-volume premium setting, small issues were not always reported directly — some guests stayed silent, others went online.
+            </p>
+          </div>
+          <div class="caseBlock">
+            <b data-i18n="case.c2t">The solution</b>
+            <p data-i18n="case.c2d">
+              Silent Pulse was deployed via NFC + QR access points on tables and menus, enabling discreet issue reporting in seconds.
+            </p>
+          </div>
+          <div class="caseBlock">
+            <b data-i18n="case.c3t">What management noticed</b>
+            <p data-i18n="case.c3d">
+              Faster awareness, better internal communication, and more confident service recovery — reducing the risk of negative public reviews.
+            </p>
+          </div>
+          <div class="caseBlock">
+            <b data-i18n="case.c4t">Outcome</b>
+            <p data-i18n="case.c4d">
+              Silent Pulse became a quiet layer of protection for the brand experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="contact.h2">Request a demo</h2>
+          <p data-i18n="contact.p">Tell us about your venue. We’ll reply with a premium setup plan.</p>
+        </div>
+      </div>
+
+      <div class="card" style="border-radius:var(--radius2); padding: 20px 18px;">
+        <div class="successMsg" id="demoSuccess" data-i18n="contact.success">Thanks — we received your request. We’ll be in touch shortly.</div>
+        <div class="errorMsg" id="demoError" data-i18n="contact.error">Something went wrong. Please try again.</div>
+
+        <form id="demoForm">
+          <div class="field">
+            <label for="fullName" data-i18n="contact.name">Full name</label>
+            <input id="fullName" name="fullName" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="venue" data-i18n="contact.venue">Venue name</label>
+            <input id="venue" name="venue" required />
+          </div>
+          <div class="field">
+            <label for="location" data-i18n="contact.location">City / Country</label>
+            <input id="location" name="location" autocomplete="address-level2" />
+          </div>
+          <div class="field">
+            <label for="email" data-i18n="contact.email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="covers" data-i18n="contact.covers">Average covers per day</label>
+            <select id="covers" name="covers">
+              <option value="0-50">0–50</option>
+              <option value="50-150">50–150</option>
+              <option value="150-300">150–300</option>
+              <option value="300-600">300–600</option>
+              <option value="600+">600+</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message" data-i18n="contact.message">Message</label>
+            <textarea id="message" name="message" placeholder=""></textarea>
+          </div>
+
+          <div class="formActions">
+            <button class="btn primary" type="submit" data-i18n="contact.submit">Request a Demo</button>
+            <div class="note" data-i18n="contact.note">
+              By submitting, you agree to our <a href="#privacy">Privacy</a> and <a href="#terms">Terms</a>.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <small>© <span id="year"></span> Silent Pulse</small><br/>
+          <small data-i18n="footer.small">Luxury feedback. Instant recovery.</small>
+        </div>
+        <div class="footLinks">
+          <a id="privacy" href="javascript:void(0)" data-i18n="footer.privacy">Privacy</a>
+          <a id="terms" href="javascript:void(0)" data-i18n="footer.terms">Terms</a>
+          <a id="security" href="javascript:void(0)" data-i18n="footer.security">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUEST FORM MODAL (Preview / Demo) -->
+  <div class="modalOverlay" id="guestModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Guest form">
+      <div class="modalHead">
+        <b data-i18n="guest.title">Silent Pulse — Guest Form</b>
+        <button class="x" type="button" id="closeGuest" aria-label="Close">✕</button>
+      </div>
+      <div class="modalBody">
+        <div class="kicker" style="margin:0 0 8px;">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="guest.sub">Tell us what went wrong — privately.</span>
+        </div>
+
+        <div class="catRow" id="catRow">
+          <div class="pill active" data-cat="service" data-i18n="guest.c1">Service</div>
+          <div class="pill" data-cat="food" data-i18n="guest.c2">Food</div>
+          <div class="pill" data-cat="wait" data-i18n="guest.c3">Waiting time</div>
+          <div class="pill" data-cat="comfort" data-i18n="guest.c4">Noise / Comfort</div>
+          <div class="pill" data-cat="payment" data-i18n="guest.c5">Payment</div>
+          <div class="pill" data-cat="other" data-i18n="guest.c6">Other</div>
+        </div>
+
+        <div class="field">
+          <label for="guestIssue" data-i18n="guest.issueLabel">Describe the issue</label>
+          <textarea id="guestIssue" placeholder="" data-i18n-placeholder="guest.issuePh"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="guestContact" data-i18n="guest.contactLabel">Optional contact</label>
+          <input id="guestContact" placeholder="" data-i18n-placeholder="guest.contactPh" />
+        </div>
+
+        <div class="modalActions">
+          <button class="btn" type="button" id="guestClear" data-i18n="guest.clear">Clear</button>
+          <button class="btn primary" type="button" id="guestSend" data-i18n="guest.send">Send</button>
+        </div>
+
+        <div class="tiny" id="guestStatus" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- i18n (EN / PT-BR / TR) ----------
+    const I18N = {
+      "en": {
+        "brand.tag":"Luxury Feedback",
+        "nav.home":"Home",
+        "nav.restaurants":"For Restaurants",
+        "nav.how":"How It Works",
+        "nav.case":"Case Studies",
+        "nav.contact":"Contact",
+        "nav.guestForm":"Guest Form",
+        "nav.demo":"Request a Demo",
+
+        "hero.kicker":"Designed for premium hospitality",
+        "hero.h1":"Silent Pulse",
+        "hero.sub":"Luxury feedback. Instant recovery.",
+        "hero.desc":"NFC or QR access. Guests report issues discreetly. Your team fixes them in real-time — before they become reviews.",
+        "hero.cta1":"Request a Demo",
+        "hero.cta2":"See How It Works",
+        "hero.micro":"Built to protect the guest experience — <strong>quietly</strong>.",
+
+        "side.title":"In 3 steps",
+        "side.s1t":"Tap or Scan",
+        "side.s1d":"NFC or QR opens a private form.",
+        "side.s2t":"Describe the Issue",
+        "side.s2d":"Guests write freely, without pressure.",
+        "side.s3t":"Resolve in Real Time",
+        "side.s3d":"Your team is informed instantly.",
+        "side.clientTitle":"Trusted by",
+        "side.clientSub":"Live deployment",
+
+        "problem.h2":"Small issues become public damage.",
+        "problem.p":"Guests don’t want to complain out loud. They either stay silent — or go online.",
+        "problem.badge":"Luxury standard",
+        "problem.c1t":"Service",
+        "problem.c1p":"Delayed attention, missed requests, slow follow-through.",
+        "problem.c2t":"Food",
+        "problem.c2p":"Wrong order, temperature, timing, presentation concerns.",
+        "problem.c3t":"Comfort",
+        "problem.c3p":"Noise, seating, temperature, lighting — friction in the atmosphere.",
+
+        "rest.h2":"Built for premium venues.",
+        "rest.p":"Fine dining has no margin for friction. Silent Pulse adds a discreet layer of protection.",
+        "rest.p1t":"Guest discretion",
+        "rest.p1d":"No awkward conversations. Guests share the issue privately, in seconds.",
+        "rest.b1":"Reduces tension at the table",
+        "rest.b2":"Encourages honest feedback",
+        "rest.p2t":"Operational clarity",
+        "rest.p2d":"Know what’s wrong, exactly where and when — so the right person responds.",
+        "rest.b3":"Faster issue detection",
+        "rest.b4":"Stronger service recovery",
+        "rest.useTitle":"Use cases",
+        "rest.useDesc":"Designed for high-touch hospitality environments.",
+        "rest.u1":"Fine dining",
+        "rest.u2":"Rooftop venues",
+        "rest.u3":"Hotel restaurants",
+        "rest.u4":"VIP lounges",
+
+        "how.h2":"How it works",
+        "how.p":"NFC/QR access to a discreet form. Clear signal, fast action. No friction.",
+        "how.s1t":"1 — Place",
+        "how.s1d":"NFC tag or QR on menus, table stands, or receipt presenters.",
+        "how.s2t":"2 — Guest form",
+        "how.s2d":"Guests choose a category and write the issue in their own words.",
+        "how.s3t":"3 — Resolve",
+        "how.s3d":"Your team is informed instantly to recover the experience in real time.",
+        "how.noteT":"Premium by design",
+        "how.noteD":"Silent Pulse is intentionally minimal — fast for guests, clear for teams, aligned with luxury service standards.",
+
+        "case.h2":"Case study",
+        "case.p":"A live deployment in a premium dining environment.",
+        "case.badge":"Live deployment",
+        "case.cta":"Request details",
+        "case.c1t":"The challenge",
+        "case.c1d":"In a high-volume premium setting, small issues were not always reported directly — some guests stayed silent, others went online.",
+        "case.c2t":"The solution",
+        "case.c2d":"Silent Pulse was deployed via NFC + QR access points on tables and menus, enabling discreet issue reporting in seconds.",
+        "case.c3t":"What management noticed",
+        "case.c3d":"Faster awareness, better internal communication, and more confident service recovery — reducing the risk of negative public reviews.",
+        "case.c4t":"Outcome",
+        "case.c4d":"Silent Pulse became a quiet layer of protection for the brand experience.",
+
+        "contact.h2":"Request a demo",
+        "contact.p":"Tell us about your venue. We’ll reply with a premium setup plan.",
+        "contact.success":"Thanks — we received your request. We’ll be in touch shortly.",
+        "contact.error":"Something went wrong. Please try again.",
+        "contact.name":"Full name",
+        "contact.venue":"Venue name",
+        "contact.location":"City / Country",
+        "contact.email":"Email",
+        "contact.covers":"Average covers per day",
+        "contact.message":"Message",
+        "contact.submit":"Request a Demo",
+        "contact.note":"By submitting, you agree to our <a href=\"#privacy\">Privacy</a> and <a href=\"#terms\">Terms</a>.",
+
+        "footer.small":"Luxury feedback. Instant recovery.",
+        "footer.privacy":"Privacy",
+        "footer.terms":"Terms",
+        "footer.security":"Security",
+
+        "guest.title":"Silent Pulse — Guest Form",
+        "guest.sub":"Tell us what went wrong — privately.",
+        "guest.c1":"Service",
+        "guest.c2":"Food",
+        "guest.c3":"Waiting time",
+        "guest.c4":"Noise / Comfort",
+        "guest.c5":"Payment",
+        "guest.c6":"Other",
+        "guest.issueLabel":"Describe the issue",
+        "guest.issuePh":"Write a few words about what happened…",
+        "guest.contactLabel":"Optional contact",
+        "guest.contactPh":"Phone or email (optional)",
+        "guest.clear":"Clear",
+        "guest.send":"Send",
+        "guest.sent":"Thank you. The team has been informed.",
+        "guest.needText":"Please describe the issue first."
+      },
+
+      "pt-BR": {
+        "brand.tag":"Feedback de Luxo",
+        "nav.home":"Início",
+        "nav.restaurants":"Para Restaurantes",
+        "nav.how":"Como Funciona",
+        "nav.case":"Estudos de Caso",
+        "nav.contact":"Contato",
+        "nav.guestForm":"Formulário do Cliente",
+        "nav.demo":"Solicitar Demonstração",
+
+        "hero.kicker":"Feito para hospitalidade premium",
+        "hero.h1":"Silent Pulse",
+        "hero.sub":"Feedback de luxo. Recuperação imediata.",
+        "hero.desc":"Acesso via NFC ou QR. Clientes descrevem problemas de forma discreta. Sua equipe resolve em tempo real — antes de virar avaliação.",
+        "hero.cta1":"Solicitar Demonstração",
+        "hero.cta2":"Ver Como Funciona",
+        "hero.micro":"Criado para proteger a experiência do cliente — <strong>em silêncio</strong>.",
+
+        "side.title":"Em 3 passos",
+        "side.s1t":"Aproxime ou escaneie",
+        "side.s1d":"NFC ou QR abre um formulário privado.",
+        "side.s2t":"Descreva o problema",
+        "side.s2d":"O cliente escreve livremente, sem pressão.",
+        "side.s3t":"Resolva em tempo real",
+        "side.s3d":"Sua equipe é informada imediatamente.",
+        "side.clientTitle":"Confiado por",
+        "side.clientSub":"Implantação ativa",
+
+        "problem.h2":"Pequenos problemas viram dano público.",
+        "problem.p":"Clientes não querem reclamar em voz alta. Eles ficam em silêncio — ou vão para a internet.",
+        "problem.badge":"Padrão de luxo",
+        "problem.c1t":"Atendimento",
+        "problem.c1p":"Demora, pedidos ignorados, falta de retorno.",
+        "problem.c2t":"Comida",
+        "problem.c2p":"Pedido errado, temperatura, tempo, apresentação.",
+        "problem.c3t":"Conforto",
+        "problem.c3p":"Barulho, assentos, temperatura, iluminação — atritos no ambiente.",
+
+        "rest.h2":"Feito para casas premium.",
+        "rest.p":"Alta gastronomia não tem margem para atrito. Silent Pulse adiciona uma camada discreta de proteção.",
+        "rest.p1t":"Discrição do cliente",
+        "rest.p1d":"Sem conversas desconfortáveis. O cliente relata o problema em segundos, de forma privada.",
+        "rest.b1":"Reduz tensão na mesa",
+        "rest.b2":"Incentiva feedback honesto",
+        "rest.p2t":"Clareza operacional",
+        "rest.p2d":"Saiba o que aconteceu, onde e quando — para a pessoa certa agir.",
+        "rest.b3":"Detecção mais rápida",
+        "rest.b4":"Recuperação de serviço mais forte",
+        "rest.useTitle":"Casos de uso",
+        "rest.useDesc":"Projetado para ambientes de hospitalidade de alto padrão.",
+        "rest.u1":"Alta gastronomia",
+        "rest.u2":"Rooftops",
+        "rest.u3":"Restaurantes de hotel",
+        "rest.u4":"Lounges VIP",
+
+        "how.h2":"Como funciona",
+        "how.p":"Acesso por NFC/QR a um formulário discreto. Sinal claro, ação rápida. Sem atrito.",
+        "how.s1t":"1 — Posicione",
+        "how.s1d":"NFC ou QR em cardápios, suportes de mesa ou porta-contas.",
+        "how.s2t":"2 — Formulário do cliente",
+        "how.s2d":"O cliente escolhe a categoria e descreve o problema.",
+        "how.s3t":"3 — Resolva",
+        "how.s3d":"Sua equipe é informada imediatamente para recuperar a experiência.",
+        "how.noteT":"Premium por design",
+        "how.noteD":"O Silent Pulse é intencionalmente minimalista — rápido para clientes, claro para equipes, alinhado ao padrão de serviço premium.",
+
+        "case.h2":"Estudo de caso",
+        "case.p":"Implantação ativa em um ambiente premium.",
+        "case.badge":"Implantação ativa",
+        "case.cta":"Solicitar detalhes",
+        "case.c1t":"O desafio",
+        "case.c1d":"Em um cenário premium de alto volume, pequenos problemas nem sempre eram relatados diretamente — alguns clientes ficavam em silêncio, outros iam para a internet.",
+        "case.c2t":"A solução",
+        "case.c2d":"O Silent Pulse foi implantado com pontos de acesso NFC + QR em mesas e cardápios, permitindo relatos discretos em segundos.",
+        "case.c3t":"O que a gestão percebeu",
+        "case.c3d":"Maior agilidade, melhor comunicação interna e recuperação de serviço mais confiante — reduzindo o risco de avaliações negativas públicas.",
+        "case.c4t":"Resultado",
+        "case.c4d":"O Silent Pulse virou uma camada silenciosa de proteção para a experiência da marca.",
+
+        "contact.h2":"Solicitar demonstração",
+        "contact.p":"Conte sobre o seu espaço. Vamos responder com um plano de implantação premium.",
+        "contact.success":"Obrigado — recebemos seu pedido. Entraremos em contato em breve.",
+        "contact.error":"Algo deu errado. Tente novamente.",
+        "contact.name":"Nome completo",
+        "contact.venue":"Nome do estabelecimento",
+        "contact.location":"Cidade / País",
+        "contact.email":"E-mail",
+        "contact.covers":"Média de clientes por dia",
+        "contact.message":"Mensagem",
+        "contact.submit":"Solicitar Demonstração",
+        "contact.note":"Ao enviar, você concorda com nossa <a href=\"#privacy\">Privacidade</a> e <a href=\"#terms\">Termos</a>.",
+
+        "footer.small":"Feedback de luxo. Recuperação imediata.",
+        "footer.privacy":"Privacidade",
+        "footer.terms":"Termos",
+        "footer.security":"Segurança",
+
+        "guest.title":"Silent Pulse — Formulário do Cliente",
+        "guest.sub":"Conte o que deu errado — de forma discreta.",
+        "guest.c1":"Atendimento",
+        "guest.c2":"Comida",
+        "guest.c3":"Tempo de espera",
+        "guest.c4":"Barulho / Conforto",
+        "guest.c5":"Pagamento",
+        "guest.c6":"Outro",
+        "guest.issueLabel":"Descreva o problema",
+        "guest.issuePh":"Escreva em poucas palavras o que aconteceu…",
+        "guest.contactLabel":"Contato (opcional)",
+        "guest.contactPh":"Telefone ou e-mail (opcional)",
+        "guest.clear":"Limpar",
+        "guest.send":"Enviar",
+        "guest.sent":"Obrigado. A equipe já foi informada.",
+        "guest.needText":"Por favor, descreva o problema primeiro."
+      },
+
+      "tr": {
+        "brand.tag":"Lüks Geri Bildirim",
+        "nav.home":"Anasayfa",
+        "nav.restaurants":"Restoranlar İçin",
+        "nav.how":"Nasıl Çalışır",
+        "nav.case":"Vaka Çalışmaları",
+        "nav.contact":"İletişim",
+        "nav.guestForm":"Misafir Formu",
+        "nav.demo":"Demo Talep Et",
+
+        "hero.kicker":"Premium işletmeler için tasarlandı",
+        "hero.h1":"Silent Pulse",
+        "hero.sub":"Lüks geri bildirim. Anında çözüm.",
+        "hero.desc":"NFC veya QR ile erişim. Misafirler sorunu sessizce yazar. Ekibiniz, yorum olmadan önce gerçek zamanlı çözer.",
+        "hero.cta1":"Demo Talep Et",
+        "hero.cta2":"Nasıl Çalışır",
+        "hero.micro":"Misafir deneyimini korumak için — <strong>sessizce</strong>.",
+
+        "side.title":"3 adımda",
+        "side.s1t":"Dokundur veya Tara",
+        "side.s1d":"NFC ya da QR, özel bir form açar.",
+        "side.s2t":"Sorunu Yaz",
+        "side.s2d":"Misafir baskı olmadan anlatır.",
+        "side.s3t":"Anında Çöz",
+        "side.s3d":"Ekip anında bilgilendirilir.",
+        "side.clientTitle":"Güvenilen",
+        "side.clientSub":"Aktif kurulum",
+
+        "problem.h2":"Küçük sorunlar, büyük itibar kaybı olur.",
+        "problem.p":"Misafir yüksek sesle şikayet etmek istemez. Ya susar — ya da internete yazar.",
+        "problem.badge":"Lüks standart",
+        "problem.c1t":"Servis",
+        "problem.c1p":"Gecikme, gözden kaçan istekler, yavaş aksiyon.",
+        "problem.c2t":"Yemek",
+        "problem.c2p":"Yanlış sipariş, sıcaklık, zamanlama, sunum.",
+        "problem.c3t":"Konfor",
+        "problem.c3p":"Gürültü, oturma, sıcaklık, ışık — atmosferde sürtünme.",
+
+        "rest.h2":"Elit mekanlar için üretildi.",
+        "rest.p":"Fine dining’de sürtünmeye yer yok. Silent Pulse, markayı sessizce korur.",
+        "rest.p1t":"Misafir gizliliği",
+        "rest.p1d":"Garip diyaloglar yok. Misafir saniyeler içinde sessizce iletir.",
+        "rest.b1":"Masadaki tansiyonu düşürür",
+        "rest.b2":"Dürüst geri bildirim getirir",
+        "rest.p2t":"Operasyon netliği",
+        "rest.p2d":"Ne oldu, nerede oldu, ne zaman oldu — doğru kişi hemen aksiyon alır.",
+        "rest.b3":"Daha hızlı farkındalık",
+        "rest.b4":"Daha güçlü telafi",
+        "rest.useTitle":"Kullanım alanları",
+        "rest.useDesc":"Yüksek standartlı misafirperverlik ortamları için tasarlandı.",
+        "rest.u1":"Fine dining",
+        "rest.u2":"Rooftop mekanlar",
+        "rest.u3":"Otel restoranları",
+        "rest.u4":"VIP lounge’lar",
+
+        "how.h2":"Nasıl çalışır",
+        "how.p":"NFC/QR ile sessiz bir forma erişim. Net sinyal, hızlı aksiyon. Sıfır sürtünme.",
+        "how.s1t":"1 — Yerleştir",
+        "how.s1d":"Menü, masa standı veya hesap sunumuna NFC/QR ekleyin.",
+        "how.s2t":"2 — Misafir formu",
+        "how.s2d":"Misafir kategori seçer ve sorunu kendi cümleleriyle yazar.",
+        "how.s3t":"3 — Çöz",
+        "how.s3d":"Ekip anında bilgilendirilir, misafir çıkmadan çözülür.",
+        "how.noteT":"Premium tasarım",
+        "how.noteD":"Silent Pulse bilinçli şekilde minimaldir — misafir için hızlı, ekip için net, lüks servis standardıyla uyumlu.",
+
+        "case.h2":"Vaka çalışması",
+        "case.p":"Premium bir ortamda aktif kurulum.",
+        "case.badge":"Aktif kurulum",
+        "case.cta":"Detay iste",
+        "case.c1t":"Sorun",
+        "case.c1d":"Yüksek hacimli premium bir ortamda küçük sorunlar her zaman direkt iletilmiyordu — bazı misafirler susuyor, bazıları internete yazıyordu.",
+        "case.c2t":"Çözüm",
+        "case.c2d":"Masa ve menülere NFC + QR noktaları yerleştirildi; misafirler saniyeler içinde sessizce iletebildi.",
+        "case.c3t":"Yönetimin fark ettikleri",
+        "case.c3d":"Daha hızlı farkındalık, daha iyi iç iletişim ve daha güçlü telafi — olumsuz yorum riskini azaltma.",
+        "case.c4t":"Sonuç",
+        "case.c4d":"Silent Pulse, marka deneyimi için sessiz bir koruma katmanı oldu.",
+
+        "contact.h2":"Demo talep et",
+        "contact.p":"Mekânınızı anlatın. Size premium kurulum planıyla dönüş yapalım.",
+        "contact.success":"Teşekkürler — talebinizi aldık. Yakında dönüş yapacağız.",
+        "contact.error":"Bir sorun oluştu. Lütfen tekrar deneyin.",
+        "contact.name":"Ad Soyad",
+        "contact.venue":"Mekan adı",
+        "contact.location":"Şehir / Ülke",
+        "contact.email":"E-posta",
+        "contact.covers":"Günlük ortalama misafir",
+        "contact.message":"Mesaj",
+        "contact.submit":"Demo Talep Et",
+        "contact.note":"Göndererek <a href=\"#privacy\">Gizlilik</a> ve <a href=\"#terms\">Şartlar</a>’ı kabul etmiş olursunuz.",
+
+        "footer.small":"Lüks geri bildirim. Anında çözüm.",
+        "footer.privacy":"Gizlilik",
+        "footer.terms":"Şartlar",
+        "footer.security":"Güvenlik",
+
+        "guest.title":"Silent Pulse — Misafir Formu",
+        "guest.sub":"Sorunu sessizce iletin.",
+        "guest.c1":"Servis",
+        "guest.c2":"Yemek",
+        "guest.c3":"Bekleme süresi",
+        "guest.c4":"Gürültü / Konfor",
+        "guest.c5":"Ödeme",
+        "guest.c6":"Diğer",
+        "guest.issueLabel":"Sorunu anlatın",
+        "guest.issuePh":"Ne olduğunu birkaç kelimeyle yazın…",
+        "guest.contactLabel":"İsteğe bağlı iletişim",
+        "guest.contactPh":"Telefon veya e-posta (opsiyonel)",
+        "guest.clear":"Temizle",
+        "guest.send":"Gönder",
+        "guest.sent":"Teşekkürler. Ekip bilgilendirildi.",
+        "guest.needText":"Lütfen önce sorunu yazın."
+      }
+    };
+
+    const STORAGE_KEY = "silentpulse_lang";
+    const SUPPORTED = ["en","pt-BR","tr"];
+
+    function getLang(){
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if(saved && SUPPORTED.includes(saved)) return saved;
+      // Use browser language hint
+      const nav = (navigator.language || "en").toLowerCase();
+      if(nav.startsWith("pt")) return "pt-BR";
+      if(nav.startsWith("tr")) return "tr";
+      return "en";
+    }
+
+    function setLang(lang){
+      if(!SUPPORTED.includes(lang)) lang = "en";
+      localStorage.setItem(STORAGE_KEY, lang);
+      document.documentElement.lang = lang === "pt-BR" ? "pt-BR" : lang;
+      document.getElementById("langLabel").textContent = (lang === "pt-BR" ? "PT" : lang.toUpperCase());
+      applyI18n(lang);
+    }
+
+    function applyI18n(lang){
+      const dict = I18N[lang] || I18N.en;
+
+      // Regular text nodes
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(dict[key] != null) el.innerHTML = dict[key];
+      });
+
+      // Placeholders
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if(dict[key] != null) el.setAttribute("placeholder", dict[key]);
+      });
+
+      // Update <title> & meta description quickly (optional)
+      const titleByLang = {
+        "en":"Silent Pulse — Luxury Feedback, Instant Recovery",
+        "pt-BR":"Silent Pulse — Feedback de Luxo, Recuperação Imediata",
+        "tr":"Silent Pulse — Lüks Geri Bildirim, Anında Çözüm"
+      };
+      document.title = titleByLang[lang] || titleByLang.en;
+    }
+
+    // ---------- Language dropdown ----------
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langWrap = document.getElementById("langWrap");
+
+    function closeLang(){
+      langMenu.classList.remove("open");
+      langBtn.setAttribute("aria-expanded","false");
+    }
+    function toggleLang(){
+      const open = langMenu.classList.toggle("open");
+      langBtn.setAttribute("aria-expanded", open ? "true":"false");
+    }
+
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleLang();
+    });
+
+    langMenu.addEventListener("click", (e) => {
+      const item = e.target.closest(".langItem");
+      if(!item) return;
+      const lang = item.getAttribute("data-lang");
+      setLang(lang);
+      closeLang();
+    });
+
+    document.addEventListener("click", (e) => {
+      if(!langWrap.contains(e.target)) closeLang();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeLang();
+    });
+
+    // ---------- Guest form modal ----------
+    const guestModal = document.getElementById("guestModal");
+    const openGuestBtn = document.getElementById("openGuestBtn");
+    const closeGuest = document.getElementById("closeGuest");
+    const catRow = document.getElementById("catRow");
+    const guestIssue = document.getElementById("guestIssue");
+    const guestContact = document.getElementById("guestContact");
+    const guestStatus = document.getElementById("guestStatus");
+    const guestClear = document.getElementById("guestClear");
+    const guestSend = document.getElementById("guestSend");
+
+    let selectedCat = "service";
+
+    function openGuest(){
+      guestModal.classList.add("open");
+      guestModal.setAttribute("aria-hidden","false");
+      guestStatus.textContent = "";
+      setTimeout(() => guestIssue.focus(), 50);
+    }
+    function closeGuestModal(){
+      guestModal.classList.remove("open");
+      guestModal.setAttribute("aria-hidden","true");
+    }
+
+    openGuestBtn.addEventListener("click", openGuest);
+    closeGuest.addEventListener("click", closeGuestModal);
+    guestModal.addEventListener("click", (e) => {
+      if(e.target === guestModal) closeGuestModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && guestModal.classList.contains("open")) closeGuestModal();
+    });
+
+    catRow.addEventListener("click", (e) => {
+      const pill = e.target.closest(".pill");
+      if(!pill) return;
+      catRow.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      selectedCat = pill.getAttribute("data-cat") || "service";
+    });
+
+    guestClear.addEventListener("click", () => {
+      guestIssue.value = "";
+      guestContact.value = "";
+      guestStatus.textContent = "";
+      guestIssue.focus();
+    });
+
+    guestSend.addEventListener("click", () => {
+      const lang = getLang();
+      const dict = I18N[lang] || I18N.en;
+
+      const text = (guestIssue.value || "").trim();
+      if(!text){
+        guestStatus.textContent = dict["guest.needText"] || I18N.en["guest.needText"];
+        return;
+      }
+
+      // DEMO only: here you connect to your backend (Webhook, email, etc.)
+      // Example payload you would send:
+      // { category: selectedCat, issue: text, contact: guestContact.value.trim(), source: "website-demo" }
+
+      guestStatus.textContent = dict["guest.sent"] || I18N.en["guest.sent"];
+      guestIssue.value = "";
+      guestContact.value = "";
+    });
+
+    // ---------- Demo request form (front-end only) ----------
+    const demoForm = document.getElementById("demoForm");
+    const demoSuccess = document.getElementById("demoSuccess");
+    const demoError = document.getElementById("demoError");
+
+    demoForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      demoSuccess.style.display = "none";
+      demoError.style.display = "none";
+
+      // DEMO only: connect this to your backend / email service
+      // const formData = new FormData(demoForm);
+      // fetch("/api/demo", { method:"POST", body: formData })
+
+      // Fake success:
+      demoSuccess.style.display = "block";
+      demoForm.reset();
+      location.hash = "#contact";
+    });
+
+    // ---------- Init ----------
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setLang(getLang());
+  </script>
+</body>
+</html>
+```
