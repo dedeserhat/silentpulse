@@ -1851,14 +1851,39 @@
     const demoSuccess = document.getElementById("demoSuccess");
     const demoError = document.getElementById("demoError");
 
-    demoForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      demoSuccess.style.display = "none";
-      demoError.style.display = "none";
-      demoSuccess.style.display = "block";
-      demoForm.reset();
-      location.hash = "#contact";
+    demoForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  demoSuccess.style.display = "none";
+  demoError.style.display = "none";
+
+  const payload = {
+    fullName: document.getElementById("fullName").value.trim(),
+    venue: document.getElementById("venue").value.trim(),
+    location: document.getElementById("location").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    covers: document.getElementById("covers").value,
+    message: document.getElementById("message").value.trim(),
+    source: "silentpulse.pages.dev",
+    lang: localStorage.getItem("silentpulse_lang_v1") || "en",
+    theme: localStorage.getItem("silentpulse_theme_v1") || "aqua"
+  };
+
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwBcYFolV2MZAsVJNpsRjdVINWeW5wMLZMGlzLAE-uQnpuIEKoY2oo90Brr1eDBRU2hLA/exec", {
+      method: "POST",
+      mode: "no-cors",   // Apps Script için pratik çözüm
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
+
+    demoSuccess.style.display = "block";
+    demoForm.reset();
+    location.hash = "#contact";
+  } catch (err) {
+    demoError.style.display = "block";
+  }
+});
+
 
     /* Init */
     document.getElementById("year").textContent = new Date().getFullYear();
