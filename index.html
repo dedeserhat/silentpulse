@@ -7,22 +7,17 @@
   <title>Silent Pulse — Luxury Feedback, Instant Recovery</title>
   <meta name="description" content="Silent Pulse: NFC/QR luxury feedback. Guests report issues discreetly. Your team resolves in real time—before it becomes a review." />
 
-  <!-- Assets (Google Drive direct links) -->
-  <!-- Silent Pulse Logo -->
-  <!-- https://drive.google.com/file/d/1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR/view -->
-  <!-- PERA Logo -->
-  <!-- https://drive.google.com/file/d/1K9imZsJbx3j-o4a-aXlQy3utYAQENtYh/view -->
+  <!-- Drive thumbnail links (more reliable than uc?export=download) -->
+  <!-- Silent Pulse: 1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR -->
+  <!-- PERA:        1K9imZsJbx3j-o4a-aXlQy3utYAQENtYh -->
 
   <link rel="preconnect" href="https://drive.google.com" />
 
-  <!-- Favicon (tab icon) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png"
-      href="https://drive.google.com/thumbnail?id=1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR&sz=w64">
+        href="https://drive.google.com/thumbnail?id=1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR&sz=w64">
   <link rel="apple-touch-icon"
-      href="https://drive.google.com/thumbnail?id=1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR&sz=w180">
-
-  <link rel="apple-touch-icon"
-        href="https://drive.google.com/uc?export=download&id=1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR">
+        href="https://drive.google.com/thumbnail?id=1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR&sz=w180">
 
   <style>
     /* -------------------------
@@ -30,7 +25,7 @@
        ------------------------- */
 
     :root{
-      --max: 1120px;
+      --max: 1320px;          /* widened for desktop */
       --radius: 18px;
       --radius2: 26px;
       --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
@@ -47,8 +42,8 @@
       --text:#08162a;
       --muted:rgba(8,22,42,.70);
       --muted2:rgba(8,22,42,.55);
-      --accent:#1e66ff;         /* main blue */
-      --accent2:#0ea5ff;        /* cyan blue */
+      --accent:#1e66ff;
+      --accent2:#0ea5ff;
       --glow:rgba(30,102,255,.30);
       --shadow: 0 12px 40px rgba(7, 24, 57, .12);
       --shadow2: 0 18px 70px rgba(7, 24, 57, .18);
@@ -70,7 +65,7 @@
       --text:#e9e6df;
       --muted:rgba(233,230,223,.72);
       --muted2:rgba(233,230,223,.55);
-      --accent:#d9c28a;         /* gold accent */
+      --accent:#d9c28a;
       --accent2:#bda56a;
       --glow:rgba(217,194,138,.30);
       --shadow: 0 10px 40px rgba(0,0,0,.55);
@@ -82,10 +77,6 @@
       --pillBg: rgba(217,194,138,.08);
       --pillBorder: rgba(217,194,138,.25);
     }
-
-    /* -------------------------
-       BASE
-       ------------------------- */
 
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -100,7 +91,10 @@
         linear-gradient(180deg, var(--bg0), var(--bg1));
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+    @media (max-width: 980px){
+      .wrap{ padding: 0 18px; }
+    }
 
     /* -------------------------
        TOPBAR / NAV
@@ -115,7 +109,7 @@
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       height:74px;
-      gap:12px;
+      gap:18px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
@@ -157,7 +151,7 @@
     }
 
     .right{
-      display:flex; align-items:center; gap:10px;
+      display:flex; align-items:center; gap:12px;
       min-width: 240px; justify-content:flex-end;
       flex-wrap: wrap;
     }
@@ -189,7 +183,7 @@
       outline: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
     }
 
-    /* Theme toggle (label: DARK) */
+    /* Theme toggle (label changes DARK <-> LIGHT) */
     .themeBtn{
       letter-spacing:.12em;
       text-transform: uppercase;
@@ -354,7 +348,7 @@
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      gap: 18px;
+      gap: 14px;
     }
     .sideTitle{
       font-family: var(--serif);
@@ -493,7 +487,7 @@
     }
     .panel p{ margin:0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
-    /* Case study block */
+    /* Case study */
     .case{
       border-radius: var(--radius2);
       border: 1px solid var(--line);
@@ -604,7 +598,7 @@
 
     /* Footer */
     footer{
-      padding: 36px 0 40px;
+      padding: 28px 0 40px;
       border-top: 1px solid var(--line);
       margin-top: 22px;
     }
@@ -616,6 +610,7 @@
     .foot small{ color: var(--muted2); }
     .footLinks{
       display:flex; gap:14px; flex-wrap:wrap;
+      align-items:flex-start;
     }
     .footLinks a{
       color: var(--muted2);
@@ -631,26 +626,23 @@
       background: rgba(127,127,127,.08);
     }
 
-    /* PERA glow */
-    .pera-wrap{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      margin: 0 0 22px;
-    }
-    .pera-logo{
-      width: 180px;
-      opacity: .85;
-      filter: drop-shadow(0 0 0 rgba(0,0,0,0));
-      animation: glowPulse 6.5s ease-in-out infinite;
-    }
+    /* Glow animation (used by PERA small footer logo too) */
     @keyframes glowPulse{
-      0%   { opacity:.80; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
-      42%  { opacity:.80; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+      0%   { opacity:.82; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+      42%  { opacity:.82; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
       56%  { opacity:1;   filter: drop-shadow(0 0 18px var(--glow)); }
       64%  { opacity:1;   filter: drop-shadow(0 0 28px var(--glow)); }
       74%  { opacity:.92; filter: drop-shadow(0 0 12px var(--glow)); }
-      100% { opacity:.80; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+      100% { opacity:.82; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+    }
+    .pera-footer{
+      width: 56px;
+      height: auto;
+      border-radius: 14px;
+      opacity: .88;
+      margin-bottom: 10px;
+      animation: glowPulse 7s ease-in-out infinite;
+      display:block;
     }
 
     /* -------------------------
@@ -738,6 +730,7 @@
       margin-top: 10px;
       line-height: 1.5;
     }
+
     .divider{
       height:1px; background: var(--line);
       margin: 10px 0 0;
@@ -758,6 +751,44 @@
       .right{ min-width: auto; }
       .logo{ height: 30px; }
     }
+
+    /* MOBILE NAV FIX (no more topbar squeeze) */
+    @media (max-width: 720px){
+      .nav{
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 0 12px;
+        gap: 10px;
+      }
+
+      /* brand text hidden, logo stays */
+      .brandText{ display:none; }
+      .brand{ min-width: auto; }
+
+      .right{
+        width: 100%;
+        min-width: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        justify-content: stretch;
+      }
+
+      .btn, .langBtn{
+        width: 100%;
+        justify-content: center;
+        padding: 10px 10px;
+        font-size: 12px;
+        border-radius: 14px;
+      }
+
+      #themeBtn{ grid-column: 1 / 2; }
+      #langWrap{ grid-column: 2 / 3; }
+      #openGuestBtn{ grid-column: 1 / 2; }
+      .right a.btn.primary{ grid-column: 2 / 3; }
+
+      .langMenu{ right: 0; left: auto; width: 170px; }
+    }
   </style>
 </head>
 
@@ -768,6 +799,7 @@
       <div class="nav">
         <a class="brand" href="#home" aria-label="Silent Pulse Home">
           <img class="logo"
+               referrerpolicy="no-referrer"
                src="https://drive.google.com/thumbnail?id=1tKoXDOAPlDNsLlwr9U4P0usavmKn98vR&sz=w1000"
                alt="Silent Pulse Logo" />
           <div class="brandText">
@@ -787,7 +819,7 @@
         <div class="right">
           <button class="btn themeBtn" type="button" id="themeBtn" title="Toggle theme">
             <span class="themeDot" aria-hidden="true"></span>
-            <span>DARK</span>
+            <span id="themeLabel">DARK</span>
           </button>
 
           <button class="btn" type="button" id="openGuestBtn" data-i18n="nav.guestForm">Guest Form</button>
@@ -883,6 +915,20 @@
             <p style="margin:6px 0 0; color:var(--muted2); font-size:12px;" data-i18n="side.clientSub">
               Live deployment
             </p>
+          </div>
+
+          <!-- AI REPORTS (prominent) -->
+          <div class="panel" style="padding:16px 16px;">
+            <h3 style="margin:0 0 10px; font-size:14px;" data-i18n="reports.title">AI Reports</h3>
+
+            <ul class="bullets" style="margin:0;">
+              <li><span class="tick"></span><span data-i18n="reports.daily"><b>Daily Report:</b> AI analysis of issues + recommended actions.</span></li>
+              <li><span class="tick"></span><span data-i18n="reports.weekly"><b>Weekly Report (Mondays):</b> trends, root causes, and improvements.</span></li>
+            </ul>
+
+            <div style="margin-top:12px;">
+              <a class="btn" href="#contact" data-i18n="reports.cta">Request a sample report</a>
+            </div>
           </div>
         </aside>
       </div>
@@ -1104,19 +1150,18 @@
   <!-- FOOTER -->
   <footer>
     <div class="wrap">
-      <!-- PERA logo bottom (glow) -->
-      <div class="pera-wrap">
-        <img class="pera-logo"
-	     referrerpolicy="no-referrer"
-             src="https://drive.google.com/thumbnail?id=1K9imZsJbx3j-o4a-aXlQy3utYAQENtYh&sz=w1000"
-             alt="PERA Mediterranean BBQ" />
-      </div>
-
       <div class="foot">
         <div>
+          <!-- PERA logo small, bottom-left -->
+          <img class="pera-footer"
+               referrerpolicy="no-referrer"
+               src="https://drive.google.com/thumbnail?id=1K9imZsJbx3j-o4a-aXlQy3utYAQENtYh&sz=w400"
+               alt="PERA Mediterranean BBQ" />
+
           <small>© <span id="year"></span> Silent Pulse</small><br/>
           <small data-i18n="footer.small">Luxury feedback. Instant recovery.</small>
         </div>
+
         <div class="footLinks">
           <a id="privacy" href="javascript:void(0)" data-i18n="footer.privacy">Privacy</a>
           <a id="terms" href="javascript:void(0)" data-i18n="footer.terms">Terms</a>
@@ -1169,12 +1214,6 @@
   </div>
 
   <script>
-    /* =========================================================
-       IMPORTANT RULE:
-       - FIRST VISIT MUST ALWAYS START IN ENGLISH (EN).
-       - AFTER USER CHOOSES A LANGUAGE, REMEMBER IT.
-       ========================================================= */
-
     const STORAGE_LANG = "silentpulse_lang_v1";
     const STORAGE_THEME = "silentpulse_theme_v1";
     const SUPPORTED_LANGS = ["en","pt-BR","tr"];
@@ -1207,6 +1246,11 @@
         "side.s3d":"Your team is informed instantly.",
         "side.clientTitle":"Trusted by",
         "side.clientSub":"Live deployment",
+
+        "reports.title":"AI Reports",
+        "reports.daily":"<b>Daily Report:</b> AI analysis of issues + recommended actions.",
+        "reports.weekly":"<b>Weekly Report (Mondays):</b> trends, root causes, and improvements.",
+        "reports.cta":"Request a sample report",
 
         "problem.h2":"Small issues become public damage.",
         "problem.p":"Guests don’t want to complain out loud. They either stay silent — or go online.",
@@ -1323,6 +1367,11 @@
         "side.clientTitle":"Confiado por",
         "side.clientSub":"Implantação ativa",
 
+        "reports.title":"Relatórios com IA",
+        "reports.daily":"<b>Relatório diário:</b> análise de problemas com IA + ações recomendadas.",
+        "reports.weekly":"<b>Relatório semanal (segunda):</b> tendências, causas-raiz e melhorias.",
+        "reports.cta":"Pedir um relatório exemplo",
+
         "problem.h2":"Pequenos problemas viram dano público.",
         "problem.p":"Clientes não querem reclamar em voz alta. Eles ficam em silêncio — ou vão para a internet.",
         "problem.badge":"Padrão de luxo",
@@ -1438,6 +1487,11 @@
         "side.clientTitle":"Güvenilen",
         "side.clientSub":"Aktif kurulum",
 
+        "reports.title":"Yapay Zeka Raporları",
+        "reports.daily":"<b>Günlük Rapor:</b> sorun analizi + aksiyon önerileri.",
+        "reports.weekly":"<b>Haftalık Rapor (Pazartesi):</b> trendler, kök nedenler ve iyileştirmeler.",
+        "reports.cta":"Örnek rapor iste",
+
         "problem.h2":"Küçük sorunlar, büyük itibar kaybı olur.",
         "problem.p":"Misafir yüksek sesle şikayet etmek istemez. Ya susar — ya da internete yazar.",
         "problem.badge":"Lüks standart",
@@ -1526,11 +1580,15 @@
       }
     };
 
-    // ---- LANG: ALWAYS EN ON FIRST VISIT ----
+    /* =========================================================
+       LANGUAGE
+       - First visit ALWAYS EN.
+       - After user selects, remember.
+       ========================================================= */
     function getInitialLang(){
       const saved = localStorage.getItem(STORAGE_LANG);
       if(saved && SUPPORTED_LANGS.includes(saved)) return saved;
-      return "en"; // ALWAYS EN if nothing saved
+      return "en";
     }
     function setLang(lang){
       if(!SUPPORTED_LANGS.includes(lang)) lang = "en";
@@ -1561,23 +1619,36 @@
       });
     }
 
-    // ---- THEME: default aqua, user can toggle DARK, remember choice ----
+    /* =========================================================
+       THEME
+       - Default is aqua (light).
+       - Button shows NEXT theme label:
+           current aqua -> button shows DARK
+           current dark -> button shows LIGHT
+       ========================================================= */
     function getInitialTheme(){
       const saved = localStorage.getItem(STORAGE_THEME);
       if(saved === "dark" || saved === "aqua") return saved;
-      return "aqua"; // default blue/white
+      return "aqua";
+    }
+    function updateThemeButtonLabel(){
+      const t = document.documentElement.getAttribute("data-theme") || "aqua";
+      const label = document.getElementById("themeLabel");
+      if(!label) return;
+      label.textContent = (t === "dark") ? "LIGHT" : "DARK";
     }
     function setTheme(theme){
       const t = (theme === "dark") ? "dark" : "aqua";
       document.documentElement.setAttribute("data-theme", t);
       localStorage.setItem(STORAGE_THEME, t);
+      updateThemeButtonLabel();
     }
     function toggleTheme(){
       const current = document.documentElement.getAttribute("data-theme") || "aqua";
       setTheme(current === "dark" ? "aqua" : "dark");
     }
 
-    // ---- Language dropdown UI ----
+    /* Language dropdown UI */
     const langBtn = document.getElementById("langBtn");
     const langMenu = document.getElementById("langMenu");
     const langWrap = document.getElementById("langWrap");
@@ -1608,10 +1679,10 @@
       if(e.key === "Escape") closeLang();
     });
 
-    // ---- Theme button ----
+    /* Theme button */
     document.getElementById("themeBtn").addEventListener("click", toggleTheme);
 
-    // ---- Guest form modal ----
+    /* Guest form modal */
     const guestModal = document.getElementById("guestModal");
     const openGuestBtn = document.getElementById("openGuestBtn");
     const closeGuest = document.getElementById("closeGuest");
@@ -1668,15 +1739,12 @@
         return;
       }
 
-      // DEMO only: connect to backend later
-      // payload: { category: selectedCat, issue: text, contact: guestContact.value.trim() }
-
       guestStatus.textContent = dict["guest.sent"] || I18N.en["guest.sent"];
       guestIssue.value = "";
       guestContact.value = "";
     });
 
-    // ---- Demo request form (front-end only) ----
+    /* Demo request form (front-end only) */
     const demoForm = document.getElementById("demoForm");
     const demoSuccess = document.getElementById("demoSuccess");
     const demoError = document.getElementById("demoError");
@@ -1685,20 +1753,15 @@
       e.preventDefault();
       demoSuccess.style.display = "none";
       demoError.style.display = "none";
-
-      // DEMO only: connect this to your backend / email service later
       demoSuccess.style.display = "block";
       demoForm.reset();
       location.hash = "#contact";
     });
 
-    // ---- Init ----
+    /* Init */
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // theme first (so colors load immediately)
     setTheme(getInitialTheme());
-
-    // language: ALWAYS EN on first visit
     setLang(getInitialLang());
   </script>
 </body>
